@@ -11,7 +11,7 @@ export default {
     return {};
   },
   methods: {
-    updateYear(_year) { 
+    updateYear(_year) {
       let _series = [];
       if (_year === 2021) {
         _series = [
@@ -34,14 +34,14 @@ export default {
             ],
             smooth: true,
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 0.75, [
                 {
                   offset: 0,
-                  color: "rgba(68,250,4,1)",
+                  color: "rgba(255,250,4,1)",
                 },
                 {
                   offset: 1,
-                  color: "rgba(68,250,4, 0)",
+                  color: "rgba(255,250,4, 0)",
                 },
               ]),
             },
@@ -65,14 +65,14 @@ export default {
             ],
             smooth: true,
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 0.75, [
                 {
                   offset: 0,
-                  color: "rgba(7,242,255,1)",
+                  color: "rgba(14,242,242,1)",
                 },
                 {
                   offset: 0.8,
-                  color: "rgba(7,242,255,0.0)",
+                  color: "rgba(14,242,242,0.0)",
                 },
               ]),
             },
@@ -99,14 +99,14 @@ export default {
             ],
             smooth: true,
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 0.75, [
                 {
                   offset: 0,
-                  color: "rgba(68,250,4,1)",
+                  color: "rgba(255,250,4,1)",
                 },
                 {
                   offset: 1,
-                  color: "rgba(68,250,4, 0)",
+                  color: "rgba(255,250,4, 0)",
                 },
               ]),
             },
@@ -130,14 +130,79 @@ export default {
             ],
             smooth: true,
             areaStyle: {
-              color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 0.75, [
                 {
                   offset: 0,
-                  color: "rgba(7,242,255,1)",
+                  color: "rgba(14,242,242,1)",
                 },
                 {
                   offset: 0.8,
-                  color: "rgba(7,242,255,0.0)",
+                  color: "rgba(14,242,242,0.0)",
+                },
+              ]),
+            },
+          },
+        ];
+      } else {
+        _series = [
+          {
+            name: "实有人口",
+            type: "line",
+            data: [
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+            ],
+            smooth: true,
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 0.75, [
+                {
+                  offset: 0,
+                  color: "rgba(255,250,4,1)",
+                },
+                {
+                  offset: 1,
+                  color: "rgba(255,250,4, 0)",
+                },
+              ]),
+            },
+          },
+          {
+            name: "户籍人口",
+            type: "line",
+            data: [
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+              Math.floor(Math.random() * 1000000),
+            ],
+            smooth: true,
+            areaStyle: {
+              color: new echarts.graphic.LinearGradient(0, 0, 0, 0.75, [
+                {
+                  offset: 0,
+                  color: "rgba(14,242,242,1)",
+                },
+                {
+                  offset: 0.8,
+                  color: "rgba(14,242,242,0.0)",
                 },
               ]),
             },
@@ -146,12 +211,7 @@ export default {
       }
       var option = this.myChart.getOption();
       option.series = _series;
-      /// this.myChart.setSeries(_series, false);
-
       this.myChart.setOption(option, false);
-
-      // 绘制图表
-      // this.myChart.setOption(option);
     },
   },
   mounted: function () {
@@ -166,6 +226,7 @@ export default {
       tooltip: {
         trigger: "axis",
       },
+      color: ["#FFFA04", "#14F2F2"],
       legend: {
         data: ["实有人口", "户籍人口"],
         textStyle: {
@@ -199,7 +260,7 @@ export default {
         // 控制图的大小，调整下面这些值就可以，
         // x: 64,  //左侧边距
         // x2: 64, //右侧边距
-        y: 40,
+        y: 24,
         y2: 24,
       },
       series: _series,
@@ -220,7 +281,7 @@ body,
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 200px;
+  height: 180px;
   overflow: hidden;
 }
 </style>

@@ -1,5 +1,5 @@
 // 测试环境
-// var TARGET = 'http://127.0.0.1:8070/asset/backstage/';
+// var TARGET = 'http://127.0.0.1:8070/asset/';
 
 var express = require('express');
 var app = express();
@@ -11,7 +11,7 @@ http.globalAgent.maxSockets = 50;
 
 app.use(express.static('./dist/'));
 
-// app.all('/asset/backstage/*', function (req, res, next) {
+// app.all('/asset/*', function (req, res, next) {
 //     console.log(req);
 //     return proxy.web(req, res, { target: TARGET });
 //     // next();
