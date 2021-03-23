@@ -6,7 +6,7 @@
     <Perinfo msg="" ref="Perinfo" />
     <div class="clear"></div>
     <div class="Per_Status_title">少数民族人口街道分布</div>
-    <Test02 msg="echarts " ref="Test02" />
+    <Echartssankey msg="echarts " ref="Echartssankey" />
     <TimeLine msg="" ref="TimeLine" @yearChange="getYearValue" />
 
     <div class="Per_Status_title thirdSection">少数民族人口年龄统计</div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Test02 from "./components/Test02.vue";
+import Echartssankey from "./components/Echarts_sankey.vue";
 import TimeLine from "./../common/TimeLine";
 import Perchoice from "./components/Per_choice";
 import Perinfo from "./components/Perinfo";
@@ -24,7 +24,7 @@ import Perstatistics from "./components/Per_statistics";
 export default {
   name: "App",
   components: {
-    Test02,
+    Echartssankey,
     TimeLine,
     Perchoice,
     Perinfo,
@@ -38,7 +38,7 @@ export default {
       this.getYearValue(_year);
     },
     getYearValue(_year) {
-      this.$refs["Test02"].updateYear(_year);
+      this.$refs["Echartssankey"].updateYear(_year);
       this.$refs["TimeLine"].updateActive(_year);
       this.$refs["Perinfo"].updateYear(_year);
       this.$refs["Perstatistics"].updateYear(_year);

@@ -61,12 +61,6 @@ export default {
 };
 </script>
 <style>
-.Per_Status_header {
-  width: 100%;
-  height: 38px;
-  background: url("./../../../../public/img/header.png") center center;
-  background-repeat: no-repeat;
-}
 .Per_Status_title {
   margin-top: 10px;
   padding-left: 20px;

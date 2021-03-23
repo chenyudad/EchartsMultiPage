@@ -7,7 +7,7 @@
     <div class="clear"></div>
     <div class="Per_Status_title">人口变化趋势</div>
     <div>
-      <Test01 msg="echarts" ref="Test01" />
+      <Echartsline msg="echarts" ref="Echartsline" />
     </div>
     <div>
       <TimeLine msg="" ref="TimeLine" @yearChange="getYearValue" />
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import Test01 from "./components/Test01.vue";
+import Echartsline from "./components/Echarts_line.vue";
 import TimeLine from "./../common/TimeLine";
 import PerCount from "./components/Per_Count";
 import PerStatus from "./components/Per_Status";
@@ -28,7 +28,7 @@ import PerAgeInfo from "./components/Per_AgeInfo";
 export default {
   name: "App",
   components: {
-    Test01,
+    Echartsline,
     TimeLine,
     PerCount,
     PerStatus,
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     getYearValue(_year) {
-      this.$refs["Test01"].updateYear(_year);
+      this.$refs["Echartsline"].updateYear(_year);
       this.$refs["PerCount"].updateYear(_year);
       this.$refs["PerStatus"].updateYear(_year);
       this.$refs["PerAgeInfo"].updateYear(_year);
@@ -67,6 +67,29 @@ body,
   padding: 0;
   width: 930px;
   height: 900px;
+}
+
+.Per_Status_header {
+  width: 100%;
+  height: 38px;
+  background: url("./../../../public/img/header.png") center center;
+  background-repeat: no-repeat;
+}
+
+.Per_Status_title {
+  margin-top: 10px;
+  padding-left: 20px;
+  width: 100%;
+  height: 28px;
+  line-height: 6px;
+  background: url("./../../../public/img/title.png");
+  background-repeat: no-repeat;
+  padding: ;
+  font-size: 20px;
+  font-family: Microsoft YaHei;
+  font-weight: bold;
+  color: #ffffff;
+  vertical-align: top;
 }
 .clear {
   clear: both;
