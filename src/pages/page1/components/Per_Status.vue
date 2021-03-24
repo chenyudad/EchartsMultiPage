@@ -61,21 +61,6 @@ export default {
 };
 </script>
 <style>
-.Per_Status_title {
-  margin-top: 10px;
-  padding-left: 20px;
-  width: 100%;
-  height: 28px;
-  line-height: 6px;
-  background: url("./../../../../public/img/title.png");
-  background-repeat: no-repeat;
-  padding: ;
-  font-size: 20px;
-  font-family: Microsoft YaHei;
-  font-weight: bold;
-  color: #ffffff;
-  vertical-align: top;
-}
 
 .Per_Status {
   position: relative;

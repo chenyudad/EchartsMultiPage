@@ -1,12 +1,12 @@
 <template>
   <div id="NucleinInfo">
-    <div class="topleft">
+    <div class="Nucleintopleft">
       <div class="WcjInfo">
         <div class="title">未采集人数</div>
         <div class="count">{{ wcjCount }}</div>
       </div>
     </div>
-    <div class="topright">
+    <div class="Nucleintopright">
       <div class="WjcInfo">
         <div class="title">未检测人数</div>
         <div class="count">{{ wjcCount }}</div>
@@ -14,19 +14,19 @@
     </div>
     <div class="clear"></div>
     <div>
-      <div class="perinfo">
+      <div class="Nucleinperinfo">
         <div class="preCountTitle">已采集人数</div>
         <div>
           <span class="preCount">{{ ycjPerCount }}</span>
         </div>
       </div>
-      <div class="perinfo">
+      <div class="Nucleinperinfo">
         <div class="preCountTitle">已检测人数</div>
         <div>
           <span class="preCount">{{ yjcPerCount }}</span>
         </div>
       </div>
-      <div class="perinfo">
+      <div class="Nucleinperinfo">
         <div class="preCountTitle">应采集人数</div>
         <div>
           <span class="preCount">{{ ycjPerCount }}</span>
@@ -48,7 +48,23 @@ export default {
       ycjPerCount: 29246,
     };
   },
-  methods: {},
+  methods: {
+    updateData(flag) {
+      if (flag === "银河街道") {
+        this.wcjCount = 29246;
+        this.wjcCount = 2168;
+        this.ycjPerCount = 29246;
+        this.yjcPerCount = 29246;
+        this.ycjPerCount = 29246;
+      } else if (flag === "和谐家园社区") {
+        this.wcjCount = 32114;
+        this.wjcCount = 1341;
+        this.ycjPerCount = 32114;
+        this.yjcPerCount = 32114;
+        this.ycjPerCount = 32114;
+      }
+    },
+  },
 };
 </script>
 
@@ -83,8 +99,8 @@ body,
   padding-top: 12px;
   padding-left: 96px;
 }
-.topleft,
-.topright {
+.Nucleintopleft,
+.Nucleintopright {
   width: 198px;
   height: 79px;
   float: left;
@@ -92,17 +108,17 @@ body,
   padding: 0;
 }
 
-.topleft {
+.Nucleintopleft {
   background: url("./../../../../public/img/0001.png") !important;
   background-size: 100%;
   background-repeat: none;
 }
-.topright {
+.Nucleintopright {
   background: url("./../../../../public/img/0002.png") !important;
   background-size: 100%;
   background-repeat: none;
 }
-.perinfo {
+.Nucleinperinfo {
   position: relative;
   float: left;
   width: 131px;
@@ -137,5 +153,41 @@ body,
 
 .clear {
   clear: both;
+}
+</style>
+
+
+<style  >
+.Nucleintopleft,
+.Nucleintopright,
+.Nucleinbottomleft,
+.Nucleinbottomright {
+  animation: Nuclein_Ani 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes Nuclein_Ani {
+  from {
+    width: 0px;
+    opacity: 0;
+  }
+  to {
+    width: 198px;
+    opacity: 1;
+  }
+}
+
+.Nucleinperinfo {
+  animation: Nucleinperinfo_Ani 3s;
+  animation-fill-mode: forwards;
+}
+@keyframes Nucleinperinfo_Ani {
+  from {
+    width: 0px;
+    opacity: 0;
+  }
+  to {
+    width: 131px;
+    opacity: 1;
+  }
 }
 </style>

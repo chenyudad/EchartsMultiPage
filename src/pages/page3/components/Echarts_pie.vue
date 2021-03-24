@@ -49,8 +49,206 @@ export default {
       });
       return arr;
     },
-    updateData() {
+
+    updateData(flag) {
+      if (flag === "银河街道") {
+        this.cjCount = 29246;
+        this.ycPercent = 93;
+        this.yjPercent = 84;
+      } else if (flag === "和谐家园社区") {
+        this.cjCount = 13432;
+        this.ycPercent = 89;
+        this.yjPercent = 90;
+      }
+      this.updateCharts(flag);
+    },
+    updateCharts(flag) {
       let _series = [];
+      if (flag === "银河街道") {
+        _series = [
+          {
+            name: "",
+            type: "pie",
+            selectedMode: "single",
+            radius: [0, "35%"],
+            labelLine: {
+              show: true,
+              length: 60,
+            },
+            label: {
+              position: "outer",
+              fontSize: 14,
+            },
+            startAngle: 30,
+            percentPrecision: 0,
+            label: {
+              // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+              formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
+
+              rich: {
+                hr: {
+                  borderColor: "#fff",
+                  width: "100%",
+                  borderWidth: 1,
+                  height: 1,
+                },
+                b: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                c: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                per: {
+                  color: "#fff",
+                  fontSize: 16,
+                },
+              },
+            },
+            data: [
+              { value: 250, name: "未采集", selected: true },
+              { value: 450, name: "已采集" },
+            ],
+          },
+          {
+            name: "",
+            type: "pie",
+            radius: ["55%", "80%"],
+            labelLine: {
+              length: 30,
+            },
+            startAngle: -30,
+            percentPrecision: 0,
+            label: {
+              // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+              formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
+
+              rich: {
+                hr: {
+                  borderColor: "#fff",
+                  width: "100%",
+                  borderWidth: 1,
+                  height: 0,
+                },
+                b: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                c: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                per: {
+                  color: "#fff",
+                  fontSize: 16,
+                  borderRadius: 4,
+                },
+              },
+            },
+            data: [
+              { value: 50, name: "已检测" },
+              { value: 25, name: "未检测", selected: true },
+            ],
+          },
+        ];
+      } else if (flag === "和谐家园社区") {
+        _series = [
+          {
+            name: "",
+            type: "pie",
+            selectedMode: "single",
+            radius: [0, "35%"],
+            labelLine: {
+              show: true,
+              length: 60,
+            },
+            label: {
+              position: "outer",
+              fontSize: 14,
+            },
+            startAngle: 0,
+            percentPrecision: 0,
+            label: {
+              // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+              formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
+
+              rich: {
+                hr: {
+                  borderColor: "#fff",
+                  width: "100%",
+                  borderWidth: 1,
+                  height: 1,
+                },
+                b: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                c: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                per: {
+                  color: "#fff",
+                  fontSize: 16,
+                },
+              },
+            },
+            data: [
+              { value: 120, name: "未采集", selected: true },
+              { value: 810, name: "已采集" },
+            ],
+          },
+          {
+            name: "",
+            type: "pie",
+            radius: ["55%", "80%"],
+            labelLine: {
+              length: 30,
+            },
+            startAngle: -10,
+            percentPrecision: 0,
+            label: {
+              // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+              formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
+
+              rich: {
+                hr: {
+                  borderColor: "#fff",
+                  width: "100%",
+                  borderWidth: 1,
+                  height: 0,
+                },
+                b: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                c: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                per: {
+                  color: "#fff",
+                  fontSize: 16,
+                  borderRadius: 4,
+                },
+              },
+            },
+            data: [
+              { value: 75, name: "已检测" },
+              { value: 25, name: "未检测", selected: true },
+            ],
+          },
+        ];
+      }
 
       var option = this.myChart.getOption();
       option.series = _series;
@@ -69,102 +267,12 @@ export default {
       },
 
       color: ["#FA905D", "#8E49EC", "#81F1BB", "#1871FE"],
-      series: [
-        {
-          name: "",
-          type: "pie",
-          selectedMode: "single",
-          radius: [0, "35%"],
-          labelLine: {
-            show: true,
-            length: 60,
-          },
-          label: {
-            position: "outer",
-            fontSize: 14,
-          },
-          startAngle: 30,
-          percentPrecision: 0,
-          label: {
-            // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
-            formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
-
-            rich: {
-              hr: {
-                borderColor: "#fff",
-                width: "100%",
-                borderWidth: 1,
-                height: 1,
-              },
-              b: {
-                color: "#fff",
-                fontSize: 16,
-                padding: [5, 5, 5, 5],
-              },
-              c: {
-                color: "#fff",
-                fontSize: 16,
-                padding: [5, 5, 5, 5],
-              },
-              per: {
-                color: "#fff",
-                fontSize: 16,
-              },
-            },
-          },
-          data: [
-            { value: 250, name: "未采集", selected: true },
-            { value: 450, name: "已采集" },
-          ],
-        },
-        {
-          name: "",
-          type: "pie",
-          radius: ["55%", "80%"],
-          labelLine: {
-            length: 30,
-          },
-          startAngle: -30,
-          percentPrecision: 0,
-          label: {
-            // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
-            formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
-
-            rich: {
-              hr: {
-                borderColor: "#fff",
-                width: "100%",
-                borderWidth: 1,
-                height: 0,
-              },
-              b: {
-                color: "#fff",
-                fontSize: 16,
-                padding: [5, 5, 5, 5],
-              },
-              c: {
-                color: "#fff",
-                fontSize: 16,
-                padding: [5, 5, 5, 5],
-              },
-              per: {
-                color: "#fff",
-                fontSize: 16,
-                borderRadius: 4,
-              },
-            },
-          },
-          data: [
-            { value: 50, name: "已检测" },
-            { value: 25, name: "未检测", selected: true },
-          ],
-        },
-      ],
+      series: _series,
     };
     // 绘制图表
     this.myChart.setOption(option);
     // 绘制图表
-    this.updateData();
+    this.updateCharts("银河街道");
     //随窗口大小变化重置echarts大小
     window.onresize = this.myChart.resize;
   },
@@ -196,13 +304,14 @@ body,
   margin-left: 15px;
 }
 .cjinfo:nth-child(1) {
-  background: url("./../../../../public/img/0009.png") center center;
+  border: 1px solid #1871fe;
+  /* background: url("./../../../../public/img/0009.png") no-repeat; */
 }
 .cjinfo:nth-child(2) {
-  background: url("./../../../../public/img/0010.png") center center !important;
+  border: 1px solid #8e49ec;
 }
 .cjinfo:nth-child(3) {
-  background: url("./../../../../public/img/0011.png") center center !important;
+  border: 1px solid #81f1bb;
 }
 .blue {
   width: 100px;
@@ -230,5 +339,23 @@ body,
   color: #81f1bb;
   height: 24px;
   line-height: 24px;
+}
+</style>
+
+<style>
+.cjinfo {
+  animation: cjinfo_Ani 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes cjinfo_Ani {
+  from {
+    height: 0px;
+    opacity: 0;
+  }
+  to {
+    height: 62px;
+    opacity: 1;
+  }
 }
 </style>

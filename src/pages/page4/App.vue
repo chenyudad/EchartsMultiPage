@@ -28,11 +28,11 @@
 </template>
 
 <script>
-import Echartsline from "./components/Echarts_line.vue";
-import EchartslineHeat from "./components/Echarts_lineHeat.vue";
-import Echartspie from "./components/Echarts_pie.vue";
-import PerNucleinInfo from "./components/PerNucleinInfo.vue";
-import Environment from "./components/Environment";
+import Echartsline from "./../page3/components/Echarts_line.vue";
+import EchartslineHeat from "./../page3/components/Echarts_lineHeat.vue";
+import Echartspie from "./../page3/components/Echarts_pie.vue";
+import PerNucleinInfo from "./../page3/components/PerNucleinInfo.vue";
+import Environment from "./../page3/components/Environment";
 export default {
   name: "App",
   components: {
@@ -46,10 +46,15 @@ export default {
     return {};
   },
   methods: {
-    // getYearValue(_year) {
-    //   this.$refs["Echartsline"].updateData();
-    //   this.$refs["EchartslineHeat"].updateData();
-    // },
+    init() {
+      this.$refs["PerNucleinInfo"].updateData("和谐家园社区");
+      this.$refs["Environment"].updateData("和谐家园社区");
+      this.$refs["Echartspie"].updateData("和谐家园社区"); 
+    },
+  },
+
+  mounted: function () {
+    this.init();
   },
 };
 </script>
@@ -69,7 +74,7 @@ body,
 .Per_Status_header {
   width: 100%;
   height: 38px;
-  background: url("./../../../public/img/0007.png") center center;
+  background: url("./../../../public/img/0006.png") center center;
   background-repeat: no-repeat;
 }
 

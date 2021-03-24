@@ -1,25 +1,25 @@
 <template>
   <div id="EnvironmentInfo">
-    <div class="topleft">
+    <div class="Environmenttopleft">
       <div class="WcjInfo">
         <div class="title">专项行动</div>
         <div class="count">{{ zxxdCount }}</div>
       </div>
     </div>
-    <div class="topright">
+    <div class="Environmenttopright">
       <div class="WjcInfo">
         <div class="title">已消杀</div>
         <div class="count">{{ yxsCount }}</div>
       </div>
     </div>
     <div class="clear"></div>
-    <div class="bottomleft">
+    <div class="Environmentbottomleft">
       <div class="WcjInfo">
         <div class="title">未消杀</div>
         <div class="count yellow">{{ wxsCount }}</div>
       </div>
     </div>
-    <div class="bottomright">
+    <div class="Environmentbottomright">
       <div class="WjcInfo">
         <div class="title">完成率</div>
         <div class="count">{{ wclCount }}%</div>
@@ -39,7 +39,21 @@ export default {
       wclCount: 100,
     };
   },
-  methods: {},
+  methods: {
+    updateData(flag) {
+      if (flag === "银河街道") {
+        this.zxxdCount = 328;
+        this.yxsCount = 328;
+        this.wxsCount = 0;
+        this.wclCount = 100;
+      } else if (flag === "和谐家园社区") {
+        this.zxxdCount = 300;
+        this.yxsCount = 300;
+        this.wxsCount = 0;
+        this.wclCount = 100;
+      }
+    },
+  },
 };
 </script>
 
@@ -84,10 +98,10 @@ body,
 .yellow {
   color: #f2e511;
 }
-.topleft,
-.topright,
-.bottomleft,
-.bottomright {
+.Environmenttopleft,
+.Environmenttopright,
+.Environmentbottomleft,
+.Environmentbottomright {
   width: 190px;
   height: 91px;
   float: left;
@@ -95,24 +109,44 @@ body,
   margin: 0;
 }
 
-.topleft {
+.Environmenttopleft {
   background: url("./../../../../public/img/0004.png") no-repeat !important;
   background-size: 100%;
 }
-.topright {
+.Environmenttopright {
   background: url("./../../../../public/img/0004.png") no-repeat !important;
   background-size: 100%;
 }
-.bottomleft {
+.Environmentbottomleft {
   background: url("./../../../../public/img/0005.png") no-repeat !important ;
   background-size: 100%;
 }
-.bottomright {
+.Environmentbottomright {
   background: url("./../../../../public/img/0004.png") no-repeat !important;
   background-size: 100%;
 }
 
 .clear {
   clear: both;
+}
+</style>
+<style>
+.Environmenttopleft,
+.Environmenttopright,
+.Environmentbottomleft,
+.Environmentbottomright {
+  animation: Environment_Ani 3s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes Environment_Ani {
+  from {
+    width: 0px;
+    opacity: 0;
+  }
+  to {
+    width: 190px;
+    opacity: 1;
+  }
 }
 </style>
