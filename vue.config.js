@@ -36,6 +36,14 @@ module.exports={
           filename: 'Test04.html', 
           title: 'Test04标题',
           chunks: ['chunk-vendors', 'chunk-common', 'Test04']
-      },
+      }, 
+      Test05: {
+         entry: 'src/pages/page5/main.js', 
+         template: 'public/index.html',
+         filename: 'Test05.html', 
+         title: 'Test05标题',
+         chunks: ['chunk-vendors', 'chunk-common', 'Test05']
+     },
     }
-} 
+}
+ 

@@ -11,6 +11,7 @@ export default {
     return {};
   },
   methods: {
+    //暴露一个方法，用于更新数据
     updateYear(_year) {
       let data = {
         nodes: [

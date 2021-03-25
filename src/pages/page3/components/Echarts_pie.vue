@@ -248,6 +248,98 @@ export default {
             ],
           },
         ];
+      } else if (flag === "克拉玛伊市") {
+        _series = [
+          {
+            name: "",
+            type: "pie",
+            selectedMode: "single",
+            radius: [0, "35%"],
+            labelLine: {
+              show: true,
+              length: 60,
+            },
+            label: {
+              position: "outer",
+              fontSize: 14,
+            },
+            startAngle: 0,
+            percentPrecision: 0,
+            label: {
+              // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+              formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
+
+              rich: {
+                hr: {
+                  borderColor: "#fff",
+                  width: "100%",
+                  borderWidth: 1,
+                  height: 1,
+                },
+                b: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                c: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                per: {
+                  color: "#fff",
+                  fontSize: 16,
+                },
+              },
+            },
+            data: [
+              { value: 110, name: "未采集", selected: true },
+              { value: 800, name: "已采集" },
+            ],
+          },
+          {
+            name: "",
+            type: "pie",
+            radius: ["55%", "80%"],
+            labelLine: {
+              length: 30,
+            },
+            startAngle: -10,
+            percentPrecision: 0,
+            label: {
+              // formatter: "{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ",
+              formatter: " {b|{b}:}{per|{d}%}\n{hr|}\n {c|{c}} ",
+
+              rich: {
+                hr: {
+                  borderColor: "#fff",
+                  width: "100%",
+                  borderWidth: 1,
+                  height: 0,
+                },
+                b: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                c: {
+                  color: "#fff",
+                  fontSize: 16,
+                  padding: [5, 5, 5, 5],
+                },
+                per: {
+                  color: "#fff",
+                  fontSize: 16,
+                  borderRadius: 4,
+                },
+              },
+            },
+            data: [
+              { value: 73, name: "已检测" },
+              { value: 27, name: "未检测", selected: true },
+            ],
+          },
+        ];
       }
 
       var option = this.myChart.getOption();

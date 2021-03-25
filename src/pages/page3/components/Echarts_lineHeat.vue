@@ -11,6 +11,7 @@ export default {
     return {};
   },
   methods: {
+    //日期增减方法
     addDate(_day) {
       let d = new Date();
       d.setDate(d.getDate() + _day);

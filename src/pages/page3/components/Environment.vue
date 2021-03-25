@@ -51,6 +51,12 @@ export default {
         this.yxsCount = 300;
         this.wxsCount = 0;
         this.wclCount = 100;
+      } 
+      else if (flag === "克拉玛伊市") {
+         this.zxxdCount = 535;
+        this.yxsCount = 535;
+        this.wxsCount = 0;
+        this.wclCount = 100;
       }
     },
   },
